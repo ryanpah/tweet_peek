@@ -1,6 +1,7 @@
 TweetPeek::Application.routes.draw do
 
-  get '/' => 'search#search'
+  get '/' => 'welcome#index'
+  get '/twitter/search' => 'search#results', :as => 'search_results'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
