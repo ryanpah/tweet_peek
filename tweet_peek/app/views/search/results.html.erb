@@ -1,21 +1,48 @@
 <h1>Results</h1>
-<div>
-<% @tweet_text_hash.each do |word, count|  %>
-<li><%= word.capitalize %> => <%= count %></li>
-<% end %>
-</div>
+<div class="results">
+        <table class="table">
+          <thead>
+            <tr>
+              <th> Word </th>
+              <th> Frequency </th>
+            </tr>
+          </thead>
+            <tbody>
+                <% @tweet_text_hash.each do |word, count|  %>
+                  <tr>
+                    <td><%= word.capitalize %></td>
+                    <td><%= count %></td>
+                  </tr>
+                <% end %>
+            </tbody>
 
-<div>
-<% @hashtags.each do |hashtags_and_count| %>
-  <li><%= hashtags_and_count%></li>
-<% end %>
+        <table class="table">
+          <thead>
+            <tr>
+              <th> @username & Frequency </th>
+            </tr>
+          </thead>
+            <tbody>
+                    <% @tweet_ats.each do |tweet_ats_and_count| %>
+                      <% tweet_ats_and_count.each_slice(2) do |tweet_at_and_count| %>
+                  <tr>
+                      <td><%= tweet_at_and_count %></td>
+                  </tr>
+                  <% end %>
+                    <% end %>
+            </tbody>
+      </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th> Hashtag & Frequency </th>
+            </tr>
+          </thead>
+            <tbody>
+                <% @hashtags.each do |hashtags_and_count| %>
+                <tr>
+                  <td><%= hashtags_and_count%></td>
+                </tr>
+                <% end %>
+            </tbody>
 </div>
-
-<div>
-<% @tweet_ats.each do |tweet_ats_and_count| %>
-  <% tweet_ats_and_count.each_slice(2) do |tweet_at_and_count| %>
-    <li><%= tweet_at_and_count %></li>
-  <% end %>
-<% end %>
-</div>
-
