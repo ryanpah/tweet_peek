@@ -1,0 +1,4 @@
+<h1>Top Ten</h1>
+<% Hash[Array(@popular_search_hash)[0..10]].each_pair do |search, frequency| %>
+ <li><%= search %> => <%= frequency %></li>
+<% end %>

@@ -1,5 +1,21 @@
 <h1>Results</h1>
-
+<div>
 <% @tweet_text_hash.each do |word, count|  %>
-<li><%= word %> => <%= count %></li>
+<li><%= word.capitalize %> => <%= count %></li>
 <% end %>
+</div>
+
+<div>
+<% @hashtags.each do |hashtags_and_count| %>
+  <li><%= hashtags_and_count%></li>
+<% end %>
+</div>
+
+<div>
+<% @tweet_ats.each do |tweet_ats_and_count| %>
+  <% tweet_ats_and_count.each_slice(2) do |tweet_at_and_count| %>
+    <li><%= tweet_at_and_count %></li>
+  <% end %>
+<% end %>
+</div>
+

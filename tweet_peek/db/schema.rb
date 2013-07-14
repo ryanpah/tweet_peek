@@ -15,9 +15,9 @@ ActiveRecord::Schema.define(:version => 20130713190223) do
 
   create_table "searches", :force => true do |t|
     t.string   "twitter_handle"
-    t.integer  "frequency"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.integer  "frequency",      :default => 0
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
 end
