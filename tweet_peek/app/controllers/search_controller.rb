@@ -20,7 +20,7 @@ class SearchController < ApplicationController
     list_of_tweets.each do |words|
       all_words = words.split(' ')
 
-    ###downcasing all words ###
+    ### downcasing all words ###
     all_words.map! {|word| word.downcase.strip}
 
     ### Removing useless words ###
@@ -49,6 +49,13 @@ class SearchController < ApplicationController
     @hashtags = @tweet_text_hash.select{|word, frequency| word.include?("#")}
     @tweet_ats = @tweet_text_hash.select{|word, frequency| word.include?("@")}
 
+    ### basic user info ###
+    user_information = Twitter.user(params[:twitter_handle])
+    @name = user_information[:name]
+    @description = user_information[:description]
+    @followers = user_information[:followers_count]
+    @following = user_information[:friends_count]
+
   end
 
   def top_ten
@@ -63,7 +70,6 @@ class SearchController < ApplicationController
       #Order by most frequent
       @popular_search_hash = @popular_search_hash.sort_by {|search, frequency|  frequency}
       @popular_search_hash.reverse!
-
 
   end
 
