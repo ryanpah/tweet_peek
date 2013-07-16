@@ -14,7 +14,7 @@
     <div class="container" id="results">
 
 
-                <table class="table table-striped">
+                <table class="table ">
                   <thead>
                       <tr>
                         <th> Word </th>
@@ -41,14 +41,14 @@
                             <% @tweet_ats.each do |tweet_ats_and_count| %>
                               <% tweet_ats_and_count.each_slice(2) do |tweet_at_and_count| %>
                           <tr>
-                              <td><%= tweet_at_and_count[0] %></td>
+                              <td><%= link_to tweet_at_and_count[0].tr('^A-Za-z0-9@',''), search_results_path(twitter_handle: tweet_at_and_count[0].tr('^A-Za-z0-9@','')) %></td>
                               <td><%= tweet_at_and_count[1] %></td>
                           </tr>
                           <% end %>
                             <% end %>
                     </tbody>
 
-                <table class="table table-striped">
+                <table class="table">
                   <thead>
                     <tr>
                       <th>Hashtag</th>

@@ -1,4 +1,20 @@
-<h1>Favorites</h1>
-<% @favorites.each do |favorite| %>
-  <%= link_to favorite.twitter_handle, search_results_path(twitter_handle: favorite.twitter_handle)  %>
-<% end %>
+<div class="container">
+  <h1>Favorites</h1>
+  <div class="container" id="favorites">
+    <table class="table table-striped" id="favorite">
+      <thead>
+        <tr>
+          <th> Twitter Handle: </th>
+        <tr>
+      <tbody>
+      <% @favorites.each do |favorite| %>
+        <tr>
+        <td><%= link_to favorite.twitter_handle, search_results_path(twitter_handle: favorite.twitter_handle)  %>
+          <% end %>
+        </td>
+        <tr>
+
+    </tbody>
+
+  </div>
+</div>

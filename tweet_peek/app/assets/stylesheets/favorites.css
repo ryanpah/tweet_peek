@@ -1,0 +1,22 @@
+.container#favorites {
+  width: 400px;
+  height: 400px;
+  overflow: scroll;
+  text-align: center;
+  margin: auto;
+}
+
+.table.table-striped#favorite {
+  width: 390px;
+  overflow: auto;
+  font-size: 25px;
+  text-align: center;
+}
+
+.table.table-striped td {
+  text-align: center;
+}
+
+.table.table-striped th {
+  text-align: center;
+}

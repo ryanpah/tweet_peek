@@ -1,0 +1,23 @@
+.container#top_ten {
+  width: 300px;
+  height: 450px;
+  text-align: center;
+  margin: auto;
+  padding-top: 20px;
+}
+
+.table#top_ten {
+  width: 390px;
+  overflow: auto;
+  font-size: 25px;
+  text-align: center;
+  margin: auto;
+}
+
+.table#top_ten td {
+  text-align: center;
+}
+
+.table#top_ten th {
+  text-align: center;
+}

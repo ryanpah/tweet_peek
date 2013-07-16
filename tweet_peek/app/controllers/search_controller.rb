@@ -53,6 +53,7 @@ class SearchController < ApplicationController
 
     @hashtags = @tweet_text_hash.select{|word, frequency| word.include?("#")}
     @tweet_ats = @tweet_text_hash.select{|word, frequency| word.include?("@")}
+    @tweet_ats
 
     ### basic user info ###
     user_information = Twitter.user(params[:twitter_handle])
