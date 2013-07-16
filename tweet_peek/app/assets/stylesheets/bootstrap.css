@@ -2004,11 +2004,13 @@ table {
   background-color: transparent;
   border-collapse: collapse;
   border-spacing: 0;
+  overflow: scroll;
 }
 
 .table {
   width: 100%;
   margin-bottom: 20px;
+  overflow: scroll;
 }
 
 .table th,

@@ -1,22 +1,25 @@
-<div class="search_box_results">
-  <div class="user_information_box">
-    <%= render 'favorite' %>
-    <h1><%= @name %></h1>
+<div class="container" id="page">
+  <h1>Results</h1>
+    <div class="container" id="user_information">
+            <h2><%= @name %></h2>
 
-      </br>
-      <h2><b>Description:</b> <%= @description %>  </h2>
-      <h2><b>Followers:   </b> <%= @followers %>     </h2>
-      <h2><b>Following:   </b> <%= @following %>    </h2>
-      </br>
+              </br>
+              <h4><span>Description:</span> <%= @description %>   </h4>
+              <h4><span>Followers:   </span> <%= @followers %>      </h4>
+              <h4><span>Following:   </span> <%= @following %>      </h4>
+              </br>
 
-      <h1>Results</h1>
-        <div class="results">
-                <table class="table">
+              <%= render 'favorite' %>
+    </div>
+    <div class="container" id="results">
+
+
+                <table class="table table-striped">
                   <thead>
-                    <tr>
-                      <th> Word </th>
-                      <th> Frequency </th>
-                    </tr>
+                      <tr>
+                        <th> Word </th>
+                        <th> Frequency </th>
+                      </tr>
                   </thead>
                     <tbody>
                         <% @tweet_text_hash.each do |word, count|  %>
@@ -27,35 +30,38 @@
                         <% end %>
                     </tbody>
 
-                <table class="table">
+                <table class="table table-striped">
                   <thead>
                     <tr>
-                      <th> @username & Frequency </th>
+                      <th>Twitter Handle</th>
+                      <th>Frequency</th>
                     </tr>
                   </thead>
                     <tbody>
                             <% @tweet_ats.each do |tweet_ats_and_count| %>
                               <% tweet_ats_and_count.each_slice(2) do |tweet_at_and_count| %>
                           <tr>
-                              <td><%= tweet_at_and_count[0] %> => <%= tweet_at_and_count[1] %></td>
+                              <td><%= tweet_at_and_count[0] %></td>
+                              <td><%= tweet_at_and_count[1] %></td>
                           </tr>
                           <% end %>
                             <% end %>
                     </tbody>
-              </div>
-                <table class="table">
+
+                <table class="table table-striped">
                   <thead>
                     <tr>
-                      <th> Hashtag & Frequency </th>
+                      <th>Hashtag</th>
+                      <th>Frequency</th>
                     </tr>
                   </thead>
                     <tbody>
                         <% @hashtags.each do |hashtags_and_count| %>
                         <tr>
-                          <td><%= hashtags_and_count[0] %> => <%= hashtags_and_count[1] %></td>
+                          <td><%= hashtags_and_count[0] %></td>
+                          <td><%= hashtags_and_count[1] %></td>
                         </tr>
                         <% end %>
                     </tbody>
-        </div>
-  </div>
+    </div>
 </div>
