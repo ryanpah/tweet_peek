@@ -1,10 +1,16 @@
 TweetPeek::Application.routes.draw do
 
-  get '/' => 'welcome#index', as: 'search'
-  get '/twitter/search' => 'search#results', :as => 'search_results'
-  get '/twitter/top_ten' => 'search#top_ten', :as => 'top_ten'
-  get '/twitter/favorites' => 'user#favorites', :as => 'favorites'
-  get '/about' => 'about#about', :as => 'about'
+  devise_for :users
+  devise_for :views
+
+  root to: 'welcome#index', as: 'user_root'
+  get '/twitter/search' => 'search#results', as: 'search_results'
+  get '/twitter/top_ten' => 'search#top_ten', as: 'top_ten'
+  post '/twitter/search/:twitter_handle/save' => 'user#save', as: 'save_search'
+  get '/twitter/favorites' => 'user#favorites', as: 'favorites'
+  get '/about' => 'about#about', as: 'about'
+
+  ####
 
 
   # The priority is based upon order of creation:

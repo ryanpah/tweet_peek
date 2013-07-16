@@ -15,4 +15,4 @@
 /tmp
 
 # Ignore the authentication keys
-/config/initializers/twitter.rb
+.env

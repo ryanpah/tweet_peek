@@ -38,3 +38,8 @@ h1 {
 table tr:hover {
   background: pink;
 }
+
+#favorite {
+  font-weight: bold;
+
+}

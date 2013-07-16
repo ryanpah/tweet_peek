@@ -7,7 +7,12 @@ class SearchController < ApplicationController
     ### Adds Search To Database ###
     search = Search.find_or_create_by_twitter_handle(params[:twitter_handle])
     search.frequency +=1
-    search.save
+    if search.save
+      # Good path
+    else
+      redirect_to '/', notice: "Bad search"
+      # Bad path, re-render your index view. Send it an error.
+    end
 
     list_of_tweets = []
 
@@ -70,6 +75,7 @@ class SearchController < ApplicationController
       #Order by most frequent
       @popular_search_hash = @popular_search_hash.sort_by {|search, frequency|  frequency}
       @popular_search_hash.reverse!
+
 
   end
 

@@ -1,1 +1,4 @@
 <h1>Favorites</h1>
+<% @favorites.each do |favorite| %>
+  <%= link_to favorite.twitter_handle, search_results_path(twitter_handle: favorite.twitter_handle)  %>
+<% end %>

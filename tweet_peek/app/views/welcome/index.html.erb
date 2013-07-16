@@ -1,12 +1,33 @@
-<div id="welcome_box">
 
-  <h1>Tweet Peek</h1>
+<% if user_signed_in? %>
+    <div class="welcome_box">
 
-    <div class="input_box">
-      <form action="/twitter/search" method="get">
-            <input type="text" name="twitter_handle" placeholder="Enter a Twitter @username">
-            <button class="btn btn-primary">Search!</button>
-      </form>
-    </div>
+      <h1><img src="/assets/twitter_bird.png" /><span id="title">Tweet Peek</span></h1>
 
-</div>
+          <form id="input_box" action="/twitter/search" method="get">
+                <input type="text" name="twitter_handle" placeholder="Enter a Twitter @username">&nbsp
+                <button class="btn-large btn-primary"> Search!</button>
+          </form>
+      </div>
+
+<% else %>
+
+  <div class="sign_in">
+    <h1>Please Sign in:</h1>
+    <p>
+      <%= form_for("user", :url => user_session_path) do |f| %></p>
+    <p>Email: <%= f.text_field :email %></p>
+    <p>Password: <%= f.password_field :password %>
+    </p>
+    <p><%= f.check_box :remember_me %>
+           <%= f.label :remember_me %>
+    </p>
+    <p><%= f.submit 'Sign in' %></p>
+    <p><%= link_to 'Sign up', new_user_registration_path %>
+    <p><%= link_to "Forgot your password?", new_password_path('user') %>
+    </p>
+
+      <% end %>
+  </div>
+
+<% end %>

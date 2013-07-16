@@ -1,6 +1,7 @@
 <div class="search_box_results">
   <div class="user_information_box">
-    <h1>Name: <%= @name %></h1>
+    <%= render 'favorite' %>
+    <h1><%= @name %></h1>
 
       </br>
       <h2><b>Description:</b> <%= @description %>  </h2>
@@ -36,7 +37,7 @@
                             <% @tweet_ats.each do |tweet_ats_and_count| %>
                               <% tweet_ats_and_count.each_slice(2) do |tweet_at_and_count| %>
                           <tr>
-                              <td><%= tweet_at_and_count %></td>
+                              <td><%= tweet_at_and_count[0] %> => <%= tweet_at_and_count[1] %></td>
                           </tr>
                           <% end %>
                             <% end %>
@@ -51,7 +52,7 @@
                     <tbody>
                         <% @hashtags.each do |hashtags_and_count| %>
                         <tr>
-                          <td><%= hashtags_and_count %></td>
+                          <td><%= hashtags_and_count[0] %> => <%= hashtags_and_count[1] %></td>
                         </tr>
                         <% end %>
                     </tbody>

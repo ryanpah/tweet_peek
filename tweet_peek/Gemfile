@@ -4,16 +4,18 @@ ruby '2.0.0'
 
 gem 'rails', '3.2.13'
 gem 'twitter'
-# gem 'dotenv'
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'devise'
+gem 'bootstrap_helper'
+# gem 'omniauth'
 
 # We need the pg gem for Heroku (which is our production environment)
 # Heroku will automatically configure out config/database.yml file when we deploy
 gem 'pg', :group => :production
 
 group :development, :test do
+
+  gem 'dotenv-rails'
+
   gem 'sqlite3'             # Heroku doesn't run sqlite3, but Postgres. However, we can use Postgres locally
 
 
