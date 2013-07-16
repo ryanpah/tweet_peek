@@ -24,3 +24,13 @@
   top: -80px;
 }
 
+.sign_in {
+  margin: auto;
+  text-align: left;
+  padding: 30px;
+}
+
+.sign_in h1{
+  text-align: left;
+  padding-bottom: 10px;
+}

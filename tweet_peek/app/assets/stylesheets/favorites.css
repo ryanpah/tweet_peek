@@ -1,22 +1,10 @@
-.container#favorites {
-  width: 400px;
-  height: 400px;
-  overflow: scroll;
-  text-align: center;
+.container#favorites ul p a#favorite {
   margin: auto;
+  font-size: 30px;
+  opacity: 0.5;
 }
 
-.table.table-striped#favorite {
-  width: 390px;
-  overflow: auto;
-  font-size: 25px;
+.container#favorites h1 {
   text-align: center;
-}
-
-.table.table-striped td {
-  text-align: center;
-}
-
-.table.table-striped th {
-  text-align: center;
+  padding-bottom: 10px;
 }

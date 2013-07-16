@@ -13,21 +13,22 @@
 <% else %>
 
   <div class="sign_in">
-    <h1>Please Sign in:</h1>
+    <h1> Please Sign in:</h1>
+
     <p>
-      <%= form_for("user", :url => user_session_path) do |f| %></p>
-    <p>Email: <%= f.text_field :email %></p>
-    <p>Password: <%= f.password_field :password %>
+                             <%= form_for("user", :url => user_session_path) do |f| %></p>
+    <p>Email:         <%= f.text_field :email %></p>
+    <p>Password:   <%= f.password_field :password %>
     </p>
-    <p><%= f.check_box :remember_me %>
-           <%= f.label :remember_me %>
+    <p>                   <%= f.check_box :remember_me %>
+                              <%= f.label :remember_me %>
     </p>
-    <p><%= f.submit 'Sign in' %></p>
-    <p><%= link_to 'Sign up', new_user_registration_path %>
-    <p><%= link_to "Forgot your password?", new_password_path('user') %>
+    <p>                   <%= f.submit 'Sign in', class:"btn btn-success" %></p>
+    <p>                   <%= link_to 'Sign up', new_user_registration_path %>
+    <p>                   <%= link_to "Forgot your password?", new_password_path('user') %>
     </p>
 
-      <% end %>
+                              <% end %>
 
   </div>
 

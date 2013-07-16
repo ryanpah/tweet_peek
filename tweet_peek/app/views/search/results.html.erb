@@ -1,7 +1,7 @@
 <div class="container" id="page">
   <h1>Results</h1>
     <div class="container" id="user_information">
-            <h2><%= @name %></h2>
+            <h2><%= @name.capitalize %></h2>
 
               </br>
               <h4><span>Description:</span> <%= @description %>   </h4>
@@ -14,7 +14,7 @@
     <div class="container" id="results">
 
 
-                <table class="table ">
+                <table class="table" id="words">
                   <thead>
                       <tr>
                         <th> Word </th>
@@ -24,7 +24,7 @@
                     <tbody>
                         <% @tweet_text_hash.each do |word, count|  %>
                           <tr>
-                            <td><%= word.capitalize %></td>
+                            <td id="word"><%= truncate(word.capitalize, length: 20) %></td>
                             <td><%= count %>              </td>
                           </tr>
                         <% end %>
@@ -58,8 +58,8 @@
                     <tbody>
                         <% @hashtags.each do |hashtags_and_count| %>
                         <tr>
-                          <td><%= hashtags_and_count[0] %></td>
-                          <td><%= hashtags_and_count[1] %></td>
+                          <td id="hashtag"><%= hashtags_and_count[0] %></td>
+                          <td id="hashtag_count"><%= hashtags_and_count[1] %></td>
                         </tr>
                         <% end %>
                     </tbody>

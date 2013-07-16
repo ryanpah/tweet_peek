@@ -1,9 +1,13 @@
 .container#top_ten {
-  width: 300px;
+  width: 350px;
   height: 450px;
   text-align: center;
   margin: auto;
   padding-top: 20px;
+}
+
+.container .container#top_ten_title h1 {
+  text-align: center;
 }
 
 .table#top_ten {
@@ -21,3 +25,4 @@
 .table#top_ten th {
   text-align: center;
 }
+

@@ -10,10 +10,10 @@ class UserController < ApplicationController
   end
 
   def favorites
-    @favorites = current_user.searches
+
+    if user_signed_in?
+      @favorites = current_user.searches
+    end
   end
-
-
-
 
 end

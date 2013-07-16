@@ -1,23 +1,24 @@
-<div class="container">
-  <h1>Top Ten</h1>
-    <div class="container" id="top_ten" >
-      <table class="table" id="top_ten">
-            <thead>
-              <tr>
-                <th>Rank</th>
-                <th>Handle</th>
-                <th>Frequency</th>
-              </tr>
-            </thead>
-              <tbody>
-                  <% rank = 0 %>
-                  <% Hash[Array(@popular_search_hash)[0...10]].each_pair do |search, frequency| %>
+<div class="container" >
+      <h1>Top Ten</h1>
+        <div class="container" id="top_ten" >
+          <table class="table" id="top_ten">
+                <thead>
                   <tr>
-                    <td><%= rank += 1  %></td>
-                    <td><%=link_to search, search_results_path(twitter_handle: search) %></td>
-                    <td><%= frequency %></td>
+                    <th>Rank</th>
+                    <th>Handle</th>
+                    <th>Frequency</th>
                   </tr>
-                  <% end %>
-      </tbody>
-    </div>
+                </thead>
+                  <tbody>
+                      <% rank = 0 %>
+                      <% Hash[Array(@popular_search_hash)[0...10]].each_pair do |search, frequency| %>
+                      <tr>
+                        <td><%= rank += 1  %></td>
+                        <td><%=link_to search, search_results_path(twitter_handle: search) %></td>
+                        <td><%= frequency %></td>
+                      </tr>
+                      <% end %>
+          </tbody>
+        </div>
+      </div>
 </div>
