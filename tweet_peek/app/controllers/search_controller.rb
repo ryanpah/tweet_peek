@@ -2,24 +2,15 @@ class SearchController < ApplicationController
 
   def results
 
-    ### If logged in through twitter, use their keys ###
-    ### If not, use my keys (limited to 200/hr) ###
-    ### token = current_user.twitter_oauth_token#||= ENV['YOUR_CONSUMER_KEY'])
-    ### token_secret = current_user.twitter_oauth_secret #||= ENV['YOUR_CONSUMER_SECRET'])
+    token = current_user.twitter_oauth_token #||= ENV['YOUR_OAUTH_TOKEN']
+    secret = current_user.twitter_oauth_secret #||= ENV['YOUR_OAUTH_TOKEN_SECRET']
 
     client = Twitter::Client.new(
-    # :consumer_key => ENV['YOUR_CONSUMER_KEY'],
-    # :consumer_secret => ENV['YOUR_CONSUMER_SECRET'],
-    :oauth_token => current_user.twitter_oauth_token,
-    :oauth_token_secret => current_user.twitter_oauth_secret
-    )
-
-
-    ### Reconfigure Twitter here, but using their keys. ###
-    # twitter_client = Twitter.configure do |config|
-    #        config.consumer_key = token
-    #        config.consumer_secret = token_secret
-    # end
+      consumer_key:  ENV['YOUR_CONSUMER_KEY'],
+      consumer_secret: ENV['YOUR_CONSUMER_SECRET'],
+      oauth_token: token,
+      oauth_token_secret: secret
+      )
 
     ### grab tweets ###
     tweets = client.user_timeline(params[:twitter_handle], {count: 200})

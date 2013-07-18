@@ -5,9 +5,12 @@
   <div class= "container about favorite" >
         <ul>
              <p> <%= link_to favorite.twitter_handle, search_results_path(twitter_handle: favorite.twitter_handle), id: "favorite"  %>
+                     <%= button_to "Remove", delete_search_path(favorite.twitter_handle), class:"btn btn-danger", id:"remove_button" %></p>
+      </ul>
                      <% end %>
 
-            <% end %></p>
-        </ul>
+
+            <% end %>
+
     </div>
   </div>

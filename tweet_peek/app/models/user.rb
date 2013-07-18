@@ -16,7 +16,9 @@ class User < ActiveRecord::Base
                           :password_confirmation,
                           :provider,
                           :uid,
-                          :name
+                          :name,
+                          :twitter_oauth_token,
+                          :twitter_oauth_secret
 
    devise :database_authenticatable,
               :registerable,
@@ -39,6 +41,8 @@ class User < ActiveRecord::Base
                              provider:auth.provider,
                              uid:auth.uid,
                              email:auth.info.email,
+                             twitter_oauth_token: auth.credentials.token,
+                             twitter_oauth_secret: auth.credentials.secret,
                              password:Devise.friendly_token[0,20]
                              )
       end

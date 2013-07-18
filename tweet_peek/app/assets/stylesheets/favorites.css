@@ -1,20 +1,32 @@
 .container.about #favorite {
   margin: auto;
   font-size: 30px;
-  opacity: 0.8;
+  opacity: 1;
 }
 
-.span6 h1 {
-  text-align: left;
-  padding-bottom: 10px;
+.container.about h1 {
+  text-align: center;
+  padding-bottom: 20px;
 }
 
 .container.about.favorite {
   background: #006dcc;
   border-radius: 6px;
-  opacity: 0.7;
+  opacity: 1;
 }
 
 .container.about.favorite ul p a {
   color: white;
+}
+
+.container.about.favorite ul {
+  margin: 12px;
+}
+
+input#remove_button {
+  float: right;
+  margin-top: -37px;
+  margin-right: 10px;
+  font-weight: bold;
+  font-size: 17px;
 }

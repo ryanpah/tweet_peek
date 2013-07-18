@@ -8,6 +8,12 @@ class UserController < ApplicationController
       redirect_to('/twitter/favorites')
   end
 
+  def delete
+    handle = Search.find_by_twitter_handle(params[:twitter_handle])
+    current_user.searches.delete(handle)
+    redirect_to '/twitter/favorites'
+  end
+
   def favorites
     if user_signed_in?
       @favorites = current_user.searches
