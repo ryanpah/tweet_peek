@@ -11,6 +11,7 @@
         <div><%= f.check_box :remember_me %><%= f.label :remember_me %></div>
       <% end -%>
 
+      <p><%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter), class:"btn btn-primary" %></p>
       <div><%= f.submit "Sign in", class:"btn btn-success" %></div>
     <% end %>
 

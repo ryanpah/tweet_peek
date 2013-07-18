@@ -13,9 +13,9 @@
                       <% rank = 0 %>
                       <% Hash[Array(@popular_search_hash)[0...10]].each_pair do |search, frequency| %>
                       <tr>
-                        <td><%= rank += 1  %></td>
-                        <td><%=link_to search, search_results_path(twitter_handle: search) %></td>
-                        <td><%= frequency %></td>
+                        <td class="top_ten"><%= rank += 1  %></td>
+                        <td class="top_ten"><%=link_to search, search_results_path(twitter_handle: search) %></td>
+                        <td class="top_ten"><%= frequency %></td>
                       </tr>
                       <% end %>
           </tbody>

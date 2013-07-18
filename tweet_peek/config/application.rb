@@ -8,6 +8,8 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
+
+
 module TweetPeek
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
@@ -57,5 +59,8 @@ module TweetPeek
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    #in order to rake precompile
+    config.assets.initialize_on_precompile = false
   end
 end

@@ -34,3 +34,15 @@
   text-align: left;
   padding-bottom: 10px;
 }
+
+#sign_in_home {
+  text-align: center;
+  float: right;
+  position: relative;
+  right: 131px;
+  top: -70px;
+}
+
+
+
+

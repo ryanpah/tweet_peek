@@ -6,5 +6,10 @@
 
 .container#favorites h1 {
   text-align: center;
-  padding-bottom: 10px;
+  padding-bottom: 15px;
+  margin-left: 25px;
+}
+
+.container#favorites {
+  text-align: center;
 }
