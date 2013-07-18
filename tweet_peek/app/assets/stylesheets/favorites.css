@@ -1,15 +1,20 @@
-.container#favorites ul p a#favorite {
+.container.about #favorite {
   margin: auto;
   font-size: 30px;
-  opacity: 0.5;
+  opacity: 0.8;
 }
 
-.container#favorites h1 {
-  text-align: center;
-  padding-bottom: 15px;
-  margin-left: 25px;
+.span6 h1 {
+  text-align: left;
+  padding-bottom: 10px;
 }
 
-.container#favorites {
-  text-align: center;
+.container.about.favorite {
+  background: #0088cc;
+  border-radius: 6px;
+  opacity: 0.7;
+}
+
+.container.about.favorite ul p a {
+  color: white;
 }

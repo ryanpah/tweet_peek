@@ -1,0 +1,35 @@
+ <!-- Button to trigger modal -->
+<a href="#myModal" role="button" class="btn-large btn-primary" id="sign_in_home" data-toggle="modal">Sign in to search</a>
+
+
+<!-- Modal -->
+
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Sign in: With Twitter for Optimal Functionality</h3>
+    </div>
+
+  <div class="modal-body">
+
+    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+        <div><%= f.label :email %>
+        <%= f.email_field :email, :autofocus => true %></div><br />
+
+        <div><%= f.label :password %>
+        <%= f.password_field :password %></div>
+
+  </div>
+
+      <div class="modal-footer">
+        <%= f.submit "Sign in", class:"btn btn-primary", id:"sign_in" %>
+        <button class="btn btn-action" id="close" data-dismiss="modal" aria-hidden="true">Close</button>
+        <%= link_to "Sign up", new_registration_path(resource_name), class:"btn btn-success", id:"sign_up" %>
+
+        <%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter), class:"btn btn-info", id:"sign_in_with_twitter" %>
+        <% end %>
+      </div>
+
+
+ </div>

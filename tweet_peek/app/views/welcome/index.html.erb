@@ -1,22 +1,9 @@
 <% if user_signed_in? %>
 
-      <div class="welcome_box">
-
-        <h1><img src="/assets/twitter_bird.png" /><span id="title">Tweet Peek</span></h1>
-        <div id="input_box">
-               <%= form_tag('/twitter/search', method: 'get') do %>
-               <%= text_field_tag(:twitter_handle, nil, placeholder: 'Enter a Twitter Handle') %>
-               <%= submit_tag 'Search', class:"btn-large btn-primary", id:"search_button" %>
-               <% end %>
-        </div>
-      </div>
+  <%= render partial: 'welcome/welcome_box_signed_in' %>
 
 <% else %>
 
-      <div class="welcome_box">
-        <h1><img src="/assets/twitter_bird.png" /><span id="title">Tweet Peek</span></h1>
-
-            <%= link_to 'Sign in to search', new_user_session_path, class:"btn-large btn-primary", id:"sign_in_home" %>
-      </div>
+  <%= render partial: 'welcome/welcome_box_not_signed_in' %>
 
 <% end %>

@@ -62,5 +62,6 @@ module TweetPeek
 
     #in order to rake precompile
     config.assets.initialize_on_precompile = false
+
   end
 end

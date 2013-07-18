@@ -1,78 +1,17 @@
 <div class="container" id="page">
   <h1>Results</h1>
+
     <div class="container" id="user_information">
-            <h2><%= @name.upcase %></h2>
 
-              </br>
-              <h4><span>Description:</span> <%= @description %>   </h4>
-              <h4><span>Followers:   </span> <%= @followers %>      </h4>
-              <h4><span>Following:   </span> <%= @following %>      </h4>
-              </br>
-
+              <%= render 'user_info' %>
               <%= render 'favorite' %>
-              <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://tweet-peek.herokuapp.com/" data-text="Check out Tweet Peek! An analysis of the most recent 200 tweets of any user." data-size="large">Tweet</a>
-              <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-
-              <p>
-              </br>
-              <a class="btn btn-inverse" href="https://www.facebook.com/sharer/sharer.php?u=https://tweet-peek.herokuapp.com/"
-                   target="_blank">Share on Facebook
-              </a>
-              </br>
-              </p>
+              <%= render 'share' %>
 
     </div>
 
     <div class="container" id="results">
-
-                <table class="table" id="words">
-                  <thead>
-                      <tr>
-                        <th> Word </th>
-                        <th> Frequency </th>
-                      </tr>
-                  </thead>
-                    <tbody>
-                        <% @tweet_text_hash.each do |word, count|  %>
-                          <tr>
-                            <td id="word">  <%= truncate(word.capitalize, length: 20) %></td>
-                            <td>                   <%= count %></td>
-                          </tr>
-                        <% end %>
-                    </tbody>
-
-                <table class="table table-striped">
-                  <thead>
-                    <tr>
-                      <th>Twitter Handle</th>
-                      <th>Frequency</th>
-                    </tr>
-                  </thead>
-                    <tbody>
-                              <% @tweet_ats.each do |tweet_ats_and_count| %>
-                              <% tweet_ats_and_count.each_slice(2) do |tweet_at_and_count| %>
-                          <tr>
-                              <td><%= link_to tweet_at_and_count[0].tr('^@A-Za-z0-9',''), search_results_path(twitter_handle: tweet_at_and_count[0].tr('^@A-Za-z0-9','')) %></td>
-                              <td><%= tweet_at_and_count[1] %></td>
-                          </tr>
-                          <% end %>
-                            <% end %>
-                    </tbody>
-
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th>Hashtag</th>
-                      <th>Frequency</th>
-                    </tr>
-                  </thead>
-                    <tbody>
-                        <% @hashtags.each do |hashtags_and_count| %>
-                        <tr>
-                          <td id="hashtag">          <%= hashtags_and_count[0] %></td>
-                          <td id="hashtag_count"><%= hashtags_and_count[1] %></td>
-                        </tr>
-                        <% end %>
-                    </tbody>
+      <%= render partial: 'tables' %>
     </div>
+
 </div>
+

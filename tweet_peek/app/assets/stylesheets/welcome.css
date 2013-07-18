@@ -38,4 +38,25 @@ img {
   padding-right: 10px;
 }
 
+a#sign_in_home.btn-large.btn-primary {
+  position: relative;
+  right: -56%;
+  top: -80px;
+}
 
+.modal-footer #close {
+  float: right;
+  margin-left: 5px;
+}
+
+.modal-footer #sign_up {
+  float: right;
+}
+
+.modal-footer #sign_in {
+  float: left;
+}
+
+.modal-footer #sign_in_with_twitter {
+  float: left;
+}

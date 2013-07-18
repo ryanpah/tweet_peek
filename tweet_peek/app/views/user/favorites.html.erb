@@ -1,36 +1,9 @@
 <% if user_signed_in? %>
 
-  <div class="container" id="favorites">
-    <h1>Favorites</h1>
-        <ul>
-            <% @favorites.each do |favorite| %>
-             <p> <%= link_to favorite.twitter_handle, search_results_path(twitter_handle: favorite.twitter_handle), id: "favorite"  %>
-            <% end %></p>
-        </ul>
-    </div>
-  </div>
+  <%= render partial: 'user/favorite' %>
 
 <% else %>
 
-  <div class="sign_in">
-    <h1> Please Sign in:</h1>
-
-    <p>
-                             <%= form_for("user", :url => user_session_path) do |f| %></p>
-    <p>Email:         <%= f.text_field :email %></p>
-    <p>Password:   <%= f.password_field :password %>
-    </p>
-    <p>                   <%= f.check_box :remember_me %>
-                              <%= f.label :remember_me %>
-    </p>
-    <p>                   <%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter),                            class:"btn btn-primary" %></p>
-    <p>                   <%= f.submit 'Sign in', class:"btn btn-success" %></p>
-    <p>                   <%= link_to 'Sign up', new_user_registration_path %>
-    <p>                   <%= link_to "Forgot your password?", new_password_path('user') %>
-    </p>
-
-                              <% end %>
-
-  </div>
+  <%= render partial: 'user/sign_in' %>
 
 <% end %>

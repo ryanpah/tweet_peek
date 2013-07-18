@@ -12,3 +12,8 @@
  *= require_tree .
  */
 
+.sign_in {
+  margin: auto;
+  padding: 10px;
+ }
+

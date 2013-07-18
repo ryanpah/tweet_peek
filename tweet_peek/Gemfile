@@ -8,6 +8,7 @@ gem 'devise'
 gem 'bootstrap_helper'
 gem 'omniauth'
 gem 'omniauth-twitter'
+gem 'newrelic_rpm'
 
 # We need the pg gem for Heroku (which is our production environment)
 # Heroku will automatically configure out config/database.yml file when we deploy
