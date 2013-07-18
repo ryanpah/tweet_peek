@@ -1,8 +1,28 @@
 class SearchController < ApplicationController
 
   def results
+
+    ### If logged in through twitter, use their keys ###
+    ### If not, use my keys (limited to 200/hr) ###
+    ### token = current_user.twitter_oauth_token#||= ENV['YOUR_CONSUMER_KEY'])
+    ### token_secret = current_user.twitter_oauth_secret #||= ENV['YOUR_CONSUMER_SECRET'])
+
+    client = Twitter::Client.new(
+    # :consumer_key => ENV['YOUR_CONSUMER_KEY'],
+    # :consumer_secret => ENV['YOUR_CONSUMER_SECRET'],
+    :oauth_token => current_user.twitter_oauth_token,
+    :oauth_token_secret => current_user.twitter_oauth_secret
+    )
+
+
+    ### Reconfigure Twitter here, but using their keys. ###
+    # twitter_client = Twitter.configure do |config|
+    #        config.consumer_key = token
+    #        config.consumer_secret = token_secret
+    # end
+
     ### grab tweets ###
-    tweets = Twitter.user_timeline(params[:twitter_handle], {count: 200})
+    tweets = client.user_timeline(params[:twitter_handle], {count: 200})
 
     ### Adds Search To Database ###
     search = Search.find_or_create_by_twitter_handle(params[:twitter_handle])
@@ -58,7 +78,7 @@ class SearchController < ApplicationController
     @tweet_ats
 
     ### basic user info ###
-    user_information = Twitter.user(params[:twitter_handle])
+    user_information = client.user(params[:twitter_handle])
     @name = user_information[:name]
     @description = user_information[:description]
     @followers = user_information[:followers_count]

@@ -1,10 +1,12 @@
   <div class="container about" >
     <h1>Favorites</h1>
+    <% @favorites.each do |favorite| %>
+    <% if favorite %>
   <div class= "container about favorite" >
-
         <ul>
-            <% @favorites.each do |favorite| %>
              <p> <%= link_to favorite.twitter_handle, search_results_path(twitter_handle: favorite.twitter_handle), id: "favorite"  %>
+                     <% end %>
+
             <% end %></p>
         </ul>
     </div>
