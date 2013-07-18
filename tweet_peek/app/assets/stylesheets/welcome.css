@@ -60,3 +60,15 @@ a#sign_in_home.btn-large.btn-primary {
 .modal-footer #sign_in_with_twitter {
   float: left;
 }
+
+img#sash {
+position: absolute;
+top: 0;
+right: 0;
+border: 0;
+padding-right: 0px;
+}
+
+
+
+
