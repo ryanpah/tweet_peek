@@ -35,7 +35,7 @@ class SearchController < ApplicationController
                               "have", "has", "this", "that", "be", "from",
                               "an", "as", "their", "there", "they're", "was",
                               "then", "than", "had", "-", "—", "+", "&amp;",
-                              "via"
+                              "via", "they", "his", "her", "he", "with", "or"
                             ]
 
     useful_words = all_words - useless_words

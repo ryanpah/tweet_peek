@@ -13,36 +13,29 @@
 
 .welcome_box h1 #title {
   position: relative;
-  top: -50px;
+  top: -30px;
 }
 
 #input_box {
   text-align: center;
   float: right;
   position: relative;
-  right: 55px;
-  top: -80px;
-}
-
-.sign_in {
-  margin: auto;
-  text-align: left;
-  padding: 30px;
-}
-
-.sign_in h1{
-  text-align: left;
-  padding-bottom: 10px;
-}
-
-#sign_in_home {
-  text-align: center;
-  float: right;
-  position: relative;
-  right: 131px;
-  top: -70px;
+  right: 40px;
+  top: -100px;
 }
 
 
+input#twitter_handle {
+  height: 35px;
+  font-size: 20px;
+}
+
+input.btn-large.btn-primary#search_button {
+  margin: 10px;
+}
+
+img {
+  padding-right: 10px;
+}
 
 
