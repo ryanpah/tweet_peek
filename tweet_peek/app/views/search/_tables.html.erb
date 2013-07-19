@@ -1,55 +1,55 @@
 <table class="table" id="words">
 
   <thead>
+    <tr>
+      <th> Word </th>
+      <th> Frequency </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tweet_text_hash.each do |word, count|  %>
+    <tr>
+      <td id="word">  <%= truncate(word.capitalize, length: 20) %></td>
+      <td>                   <%= count %></td>
+    </tr>
+    <% end %>
+  </tbody>
+
+  <table class="table table-striped">
+
+    <thead>
       <tr>
-        <th> Word </th>
-        <th> Frequency </th>
+        <th>Twitter Handle</th>
+        <th>Frequency</th>
       </tr>
-  </thead>
+    </thead>
 
     <tbody>
-        <% @tweet_text_hash.each do |word, count|  %>
-          <tr>
-            <td id="word">  <%= truncate(word.capitalize, length: 20) %></td>
-            <td>                   <%= count %></td>
-          </tr>
-        <% end %>
+      <% @tweet_ats.each do |tweet_ats_and_count| %>
+      <% tweet_ats_and_count.each_slice(2) do |tweet_at_and_count| %>
+      <tr>
+        <td><%= link_to tweet_at_and_count[0].tr('^@A-Za-z0-9',''), search_results_path(twitter_handle: tweet_at_and_count[0].tr('^@A-Za-z0-9','')) %></td>
+        <td><%= tweet_at_and_count[1] %></td>
+      </tr>
+      <% end %>
+      <% end %>
     </tbody>
 
-<table class="table table-striped">
+    <table class="table">
 
-  <thead>
-    <tr>
-      <th>Twitter Handle</th>
-      <th>Frequency</th>
-    </tr>
-  </thead>
+      <thead>
+        <tr>
+          <th>Hashtag</th>
+          <th>Frequency</th>
+        </tr>
+      </thead>
 
-    <tbody>
-              <% @tweet_ats.each do |tweet_ats_and_count| %>
-              <% tweet_ats_and_count.each_slice(2) do |tweet_at_and_count| %>
-          <tr>
-              <td><%= link_to tweet_at_and_count[0].tr('^@A-Za-z0-9',''), search_results_path(twitter_handle: tweet_at_and_count[0].tr('^@A-Za-z0-9','')) %></td>
-              <td><%= tweet_at_and_count[1] %></td>
-          </tr>
-          <% end %>
-            <% end %>
-    </tbody>
-
-<table class="table">
-
-  <thead>
-    <tr>
-      <th>Hashtag</th>
-      <th>Frequency</th>
-    </tr>
-  </thead>
-
-    <tbody>
+      <tbody>
         <% @hashtags.each do |hashtags_and_count| %>
         <tr>
           <td id="hashtag">          <%= hashtags_and_count[0] %></td>
           <td id="hashtag_count"><%= hashtags_and_count[1] %></td>
         </tr>
         <% end %>
-    </tbody>
+      </tbody>
